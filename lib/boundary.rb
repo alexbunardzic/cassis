@@ -27,8 +27,8 @@ class Boundary
   end
 
   class Customer
-    def initialize(loan)
-      Loan.new
+    def initialize(order)
+      Order.new
     end
   end
 

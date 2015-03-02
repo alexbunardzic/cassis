@@ -32,6 +32,12 @@ As we've already mentioned, because a use case within the _Cassis_ framework is 
 
 _Boundary_ is therefore responsible for collecting the end user gestures, and for initiating the running of a particular use case. Upon receiving the notification to run, the called use case will collect the values that have been passed in by the _Boundary_ together with the event notification, and then the particular _use case_ will process the scenario, as it is defined inside the user story.
 
+Each _use case_ must rely on other actors (or entities) that get defined inside this simple framework. First and foremost, business entities are defined inside the _entities_ folder. In there, we declare the structire and the capabilities of our business entities. In our simple illustration, we have merely declared an entity called _product_. To keep things simple, we have endowed this entity with two simple capabilities -- it can nitialize itself, and it canpersist iteslf (i.e. _save_). We didn't go into any details illustrating how will a business entitiy initialize and save itself, and those are specific to the particular business domain.
+
+Another important actor in this simplistic framework is a _Repository_. This repository is responsible for creating instances of business entities, persisting business entities to an auxiliary storage, and also for validating various aspects of a business entity.
+
+Finally, after processing an event that arrives from the outer imperative shell, a message must propagate back to the event initiator, informing of the success or failure of the event processing. That responsibility once again falls squarely on the shoulders of a _Boundary_, which is capable of propagating a _success_ or a _failure_ message to the outside caller.
+
 
 ## Business Validations in the Cassis Framework
 
