@@ -6,9 +6,9 @@ class Boundary
 
   def initialize(*args)
     customer = Customer.new(nil)
-    loan = Struct.new(:c)
+    order = Struct.new(:c)
     if customer
-      puts "YAY!" + customer.loan.to_s
+      puts "YAY!" + customer.order.to_s
     end
   	@repository ||= Repository.new
   	create_product(*args)
@@ -32,6 +32,6 @@ class Boundary
     end
   end
 
-  class Loan
+  class Order
   end
 end
