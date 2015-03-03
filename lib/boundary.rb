@@ -5,11 +5,6 @@ class Boundary
   attr_reader :repository
 
   def initialize(*args)
-    customer = Customer.new(nil)
-    order = Struct.new(:c)
-    if customer
-      puts "YAY!" + customer.order.to_s
-    end
   	@repository ||= Repository.new
   	create_product(*args)
   end
@@ -24,14 +19,5 @@ class Boundary
 
   def failure(err_msg)
   	puts err_msg
-  end
-
-  class Customer
-    def initialize(order)
-      Order.new
-    end
-  end
-
-  class Order
   end
 end

@@ -12,7 +12,7 @@ class CreateProduct
   def run(*args)
   	product = repository.new_product(*args)
   	result = repository.validate_product_nil(product, "Product is nil").lift_to_a +
-  	result = repository.validate_name_not_blank("", "Name is blank").lift_to_a
+  	result = repository.validate_name_not_blank(*args, "Name is blank").lift_to_a
 
   	unless Validator.valid?(result){|args| product}
   	  result.left.bind do |e|
