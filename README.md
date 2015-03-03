@@ -2,7 +2,7 @@
 
 *Cassis* is a simple architectural framework that compartmentalizes layers concerned with use cases from layers concerned with business entities, persistence, and the boundary between the functional core and the outer imperative shell.
 
-The central abstraction upon which Cassis is designed is the concept of a *Use Case*. *Use Case* is the fundamental unit of delivery, the most atomic unit of work that delivers desired business outcome.
+The central abstraction upon which *Cassis* is designed is the concept of a *Use Case*. *Use Case* is the fundamental unit of delivery, the most atomic unit of work that delivers desired business outcome.
 
 Each and every *Use Case* relies on the participating *business entities* (i.e. *collaborators*) to deliver the desired outcome upon receiving a *trigger event*. This trigger event causes the *Use Case* to run, and thus process the received information and produce the desired business outcome. During the processing of the received information, a *Use Case* does not depend on any delivery mechanism. This means that a *Use Case* in *Cassis* can process information and deliver business outcome equally well regardless of whether this information gets delivered on the web, as a background task, or using a RESTful API etc.
 
