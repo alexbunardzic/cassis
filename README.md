@@ -94,7 +94,7 @@ When the use case runs, it instantiates the class representing that use case, pe
 
 ### When the Use Case Runs
 
-Here finally is what might happen when the proverbial rubber meets the road.
+Here finally is what might happen when the proverbial rubber meets the road:
 
 ```
   def run(*args)
