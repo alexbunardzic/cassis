@@ -73,3 +73,11 @@ As already discussed, the point of contact between the outside world (i.e. the w
   	create_product(*args)
   end
 ```
+
+When the use case runs, it instantiates the class representing that use case, performs dependency injection (i.e. that instance of *Boundary* injects itself into the use case), and the runs the use case while passing in the list of arguments:
+
+```
+  def create_product(*args)
+  	CreateProduct.new(self).run(*args)
+  end
+```
