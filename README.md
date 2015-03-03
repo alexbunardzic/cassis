@@ -81,3 +81,42 @@ When the use case runs, it instantiates the class representing that use case, pe
   	CreateProduct.new(self).run(*args)
   end
 ```
+
+*CreateProduct* class implements the 'create product' use case, as defined in the corresponding user story and its accompanying scenarios. Upon getting initialized, the instance of this use case will first equate the injected instance of *Boundary* with the value @boundary, and will then obtain an instance of *Repository* from the instantiated *Boundary*; this instance will be stored in the value @repository:
+
+```  
+  def initialize(boundary)
+  	@boundary = boundary
+  	@repository = boundary.repository
+  end
+```
+
+
+### When the Use Case Runs
+
+Here finally is what might happen when the proverbial rubber meets the road.
+
+```
+  def run(*args)
+  	product = repository.new_product(*args)
+  	result = repository.validate_product_nil(product, "Product is nil").lift_to_a +
+  	result = repository.validate_name_not_blank(*args, "Name is blank").lift_to_a
+
+  	unless Validator.valid?(result){|args| product}
+  	  result.left.bind do |e|
+  	  	boundary.failure(e.join(', '))
+  	  end
+  	else
+  	  if repository.save_product(product)
+  	    boundary.success(product)
+  	  else
+  	    boundary.failure("Product not saved")
+  	  end
+  	end
+  end
+```
+
+
+
+
+
