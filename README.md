@@ -67,13 +67,9 @@ $ ruby -r "./boundary.rb" -e "Boundary.rb ['string', 2, 42]"
 
 As already discussed, the point of contact between the outside world (i.e. the world of commoditized outer imperative shell) and the inner core competency layer (i.e. the layer that implements business entities, entity gateway/repository, and specific use cases) is the so-called 'scar tissue' represented as a compartmentalized component called *Boundary*. This component gets initialized by the outer imperative shell that passes in an arbitrary list of arguments. Upon receiving the message to initialize itself, *Boundary* checks whether it has access to the instance of a *Repository*. If not, *Boundary* will instantiate *Repository* and will then run the use case:
 
-<code>
+```
   def initialize(*args)
-
   	@repository ||= Repository.new
-
   	create_product(*args)
-
   end
-  
-</code>
+```
