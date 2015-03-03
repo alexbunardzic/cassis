@@ -48,3 +48,7 @@ In contrast, validations that are driven by the underlying limitations of the re
 For this particular implementation, we have chosen the *applicative validation* methodology, which uses disjoint union type for the return value. What that means is that the information regarding whether the complex validation processing has succeeded or failed is contained within this new data type, also known as "either". A final result of the involved and potentially intricate validation process is either a correct value or it contains the description (or, a series of applicative descriptions) explaining what went wrong along the way. Whichever the case may be, applicative validation always returns a simple answer -- either the validation process succeeds and the correct value gets returned, or the validation process fails and the descriptive explanation gets returned. This simple answer is independent of the complexity of the validation process, which may involve numerous intricate business rules and elaborate steps.
 
 Applicative validation's power lies in the fact that it is not procedural by nature, which makes it much simpler to implement, maintain, reason about, test, and debug. Such declarative coding style is always preferred over the imperative coding style.
+
+## Cassis Architecture Diagram
+
+<img src="https://raw.githubusercontent.com/alexbunardzic/cassis/master/Cassis%20architecture.jpg"></img>
