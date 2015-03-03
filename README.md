@@ -73,6 +73,7 @@ As already discussed, the point of contact between the outside world (i.e. the w
   	@repository ||= Repository.new
 
   	create_product(*args)
-  	
+
   end
+  
 </code>
